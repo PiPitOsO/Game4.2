@@ -1,0 +1,9 @@
+Каталог main создан в scr
+Каталог res создан
+Каталог drawables создан в res
+Каталог vectors создан в res
+Каталог icons создан в res
+Каталог savegames создан
+Каталог temp создан
+Файл Utils.java создан
+Файл temp.txt создан
