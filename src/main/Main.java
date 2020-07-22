@@ -12,27 +12,27 @@ public class Main {
         GameProgress save2 = new GameProgress(77, 234, 4, 25.4);
         GameProgress save3 = new GameProgress(21, 53, 9, 123.4);
 
-        String way1 = "savegames/save1.data";
-        String way2 = "savegames/save2.data";
-        String way3 = "savegames/save3.data";
+        String path1 = "savegames/save1.data";
+        String path2 = "savegames/save2.data";
+        String path3 = "savegames/save3.data";
 
         ArrayList<String> listSave = new ArrayList<>();
         listSave.add("savegames/save1.data");
         listSave.add("savegames/save2.data");
         listSave.add("savegames/save3.data");
 
-        saveGame(way1, save1);
-        saveGame(way2, save2);
-        saveGame(way3, save3);
+        saveGame(path1, save1);
+        saveGame(path2, save2);
+        saveGame(path3, save3);
         zipFiles(listSave);
-        delGame(way1);
-        delGame(way2);
-        delGame(way3);
+        delGame(path1);
+        delGame(path2);
+        delGame(path3);
 
     }
 
-    public static void saveGame(String way, GameProgress save) {
-        try (FileOutputStream fos = new FileOutputStream(way);
+    public static void saveGame(String path, GameProgress save) {
+        try (FileOutputStream fos = new FileOutputStream(path);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(save);
         } catch (Exception ex) {
@@ -59,11 +59,11 @@ public class Main {
         }
     }
 
-    public static void delGame(String way) {
-        File del = new File(way);
+    public static void delGame(String path) {
+        File del = new File(path);
         if (del.delete()) {
-            System.out.println(way + "Удалён");
+            System.out.println(path + "Удалён");
         } else
-            System.out.println(way + "Файл не был найден");
+            System.out.println(path + "Файл не был найден");
     }
 }
